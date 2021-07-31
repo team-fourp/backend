@@ -4,10 +4,10 @@ import { NestFactory } from '@nestjs/core';
 import { IEnvironmentVariables } from './../../../config/IEnviromentVariables';
 import { loggerConfig } from './../../../config/logger';
 import { HttpExceptionFilter } from './../filters/http-exception.filter';
-import { AppModule } from './api.module';
+import { ApiModule } from './api.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
+  const app = await NestFactory.create(ApiModule, {
     logger: Mystica.forRoot(loggerConfig)
   });
 

@@ -1,14 +1,10 @@
 import { Module } from '@nestjs/common';
-import { createUserUseCase } from '../application/createUser';
-import { CreateUserResolver } from './../application/createUser/CreateUserResolver';
+import { CreateUserResolver } from './resolvers/CreateUserResolver';
 import { AuthUserResolver } from './resolvers/auth';
-
-const useCase = {
-  provide: 'UseCase',
-  useFactory: () => createUserUseCase
-};
+import { GlobalDependenciesUser } from './GlobalDependencies.module';
 
 @Module({
-  providers: [AuthUserResolver, CreateUserResolver, useCase]
+  imports: [GlobalDependenciesUser],
+  providers: [AuthUserResolver, CreateUserResolver]
 })
 export class UserModule {}

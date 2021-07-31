@@ -1,5 +1,5 @@
 import { Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CreateUserResolver } from '../../application/createUser/CreateUserResolver';
+import { CreateUserResolver } from './CreateUserResolver';
 
 @Resolver('Authentication')
 export class AuthUserResolver {
